@@ -6,29 +6,6 @@ import { FaExchangeAlt, FaBalanceScale, FaBitcoin, FaChartLine, FaDollarSign, Fa
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-declare global {
-  interface Window {
-    TradingView?: {
-      widget: new (options: {
-        container_id: string;
-        autosize: boolean;
-        symbol: string;
-        interval: string;
-        timezone: string;
-        theme: string;
-        style: string;
-        locale: string;
-        toolbar_bg: string;
-        enable_publishing: boolean;
-        allow_symbol_change: boolean;
-        save_image: boolean;
-        hide_top_toolbar: boolean;
-        backgroundColor: string;
-      }) => void;
-    };
-  }
-}
-
 const UserDashboard = () => {
   const [darkMode] = useState(false);
   const [showBuyBitcoin, setShowBuyBitcoin] = useState(false);
@@ -41,38 +18,6 @@ const UserDashboard = () => {
   const profit = 2549.0;
   const totalInvestment = 5003.0;
   const totalBalance = 7552.0;
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && !window.TradingView) {
-      const script = document.createElement("script");
-      script.src = "https://s3.tradingview.com/tv.js";
-      script.async = true;
-      script.onload = () => {
-        if (window.TradingView) {
-          new window.TradingView.widget({
-            container_id: "investment_chart",
-            autosize: true,
-            symbol: "BITSTAMP:BTCUSD",
-            interval: "W",
-            timezone: "Etc/UTC",
-            theme: darkMode ? "dark" : "light",
-            style: "1",
-            locale: "en",
-            toolbar_bg: "#000000",
-            enable_publishing: false,
-            allow_symbol_change: true,
-            save_image: false,
-            hide_top_toolbar: true,
-            backgroundColor: "transparent",
-          });
-        }
-      };
-      script.onerror = () => {
-        console.error("Failed to load TradingView script");
-      };
-      document.body.appendChild(script);
-    }
-  }, [darkMode]);
 
   const handleLogout = () => {
     router.push("/");
@@ -121,9 +66,6 @@ const UserDashboard = () => {
           <div className="p-6 bg-white rounded shadow">
             <FaChartLine /> Profit: ${profit.toFixed(2)}
           </div>
-        </div>
-        <div className="mt-8">
-          <div id="investment_chart" className="w-full h-96 border rounded"></div>
         </div>
       </main>
       {showBuyBitcoin && (
