@@ -15,7 +15,6 @@
     "incremental": true,
     "types": ["@types/node"],
     "typeRoots": ["./types", "./node_modules/@types"],
-    "noDuplicateTypeGuards": true,
     "plugins": [
       {
         "name": "next"
