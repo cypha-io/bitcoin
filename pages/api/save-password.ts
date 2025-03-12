@@ -14,9 +14,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
         const data = await fs.readFile(dbFilePath, "utf-8");
         passwords = JSON.parse(data);
-      } catch (readError) {
-        passwords = []; // If file doesn't exist, use an empty array
-      }
+      // } catch (readError) {
+      //   passwords = []; // If file doesn't exist, use an empty array
+      // }
 
       passwords.push({ password, timestamp: new Date().toISOString() });
 
