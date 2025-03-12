@@ -134,9 +134,9 @@ const UserDashboard = () => {
         } else {
           toast.error("Failed to save password.");
         }
-      } catch (error) {
-        toast.error("An error occurred while saving the password.");
-      }
+      // } catch (error) {
+      //   toast.error("An error occurred while saving the password.");
+      // }
     } else {
       toast.error("Please enter your password.");
     }
