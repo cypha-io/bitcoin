@@ -61,7 +61,7 @@ const UserDashboard = () => {
             <FaBalanceScale /> Total Balance: ${totalBalance.toFixed(2)}
           </div>
           <div className="p-6 bg-white rounded shadow">
-            <FaBitcoin /> BTC Balance: 0.09121 BTC
+            <FaBitcoin /> BTC Balance: 0.09687 BTC
           </div>
           <div className="p-6 bg-white rounded shadow">
             <FaChartLine /> Profit: ${profit.toFixed(2)}
