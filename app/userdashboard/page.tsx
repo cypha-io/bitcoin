@@ -16,7 +16,7 @@ const UserDashboard = () => {
   const router = useRouter();
 
   const profit = 2802.0;
-  const totalInvestment = 5781.0;
+  const totalInvestment = 5782.0;
   const totalBalance = 8583.0;
 
   const handleLogout = () => {
